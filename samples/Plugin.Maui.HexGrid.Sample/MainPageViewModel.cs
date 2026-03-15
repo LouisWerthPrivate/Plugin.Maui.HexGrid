@@ -30,6 +30,14 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
 
 	public string TextColorPath { get; } = nameof(HexSampleItem.TextColor);
 
+	public Color DefaultFillColor { get; } = Color.FromArgb("#5B34F2");
+
+	public Color DefaultSelectedFillColor { get; } = Color.FromArgb("#4522C8");
+
+	public Color DefaultStrokeColor { get; } = Colors.White;
+
+	public Color DefaultTextColor { get; } = Colors.White;
+
 	public ICommand HexTappedCommand { get; }
 
 	public HexSampleItem? SelectedItem
@@ -102,10 +110,10 @@ public sealed class MainPageViewModel : INotifyPropertyChanged
 			{
 				Label = label,
 				Preview = label,
-				FillColor = Color.FromArgb("#5B34F2"),
-				SelectedFillColor = Color.FromArgb("#4522C8"),
-				StrokeColor = Colors.White,
-				TextColor = Colors.White
+				FillColor = DefaultFillColor,
+				SelectedFillColor = DefaultSelectedFillColor,
+				StrokeColor = DefaultStrokeColor,
+				TextColor = DefaultTextColor
 			};
 		}
 	}
