@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:hex="clr-namespace:Plugin.Maui.HexGrid.Controls;assembly=Plugin.Maui.HexGrid"
+             x:Class="Plugin.Maui.HexGrid.Sample.MainPage"
+             Title="HexGrid"
+             BackgroundColor="White">
+
+    <Grid Padding="24,32" RowDefinitions="Auto,*" RowSpacing="24">
+        <VerticalStackLayout
+            Grid.Row="0"
+            Spacing="6"
+            HorizontalOptions="Start">
+            <Label
+                Text="Plugin.Maui.HexGrid"
+                FontSize="16"
+                TextColor="#6B7280"
+                HorizontalTextAlignment="Start" />
+            <Label
+                Text="Tap a hexagon"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#111827"
+                HorizontalTextAlignment="Start" />
+            <Label
+                Text="{Binding LastTappedText}"
+                FontSize="15"
+                TextColor="#4B5563"
+                HorizontalTextAlignment="Start" />
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Fill">
+            <hex:HexGridView
+                HorizontalOptions="Fill"
+                VerticalOptions="Start"
+                ItemsSource="{Binding Items}"
+                PreviewTextPath="Preview"
+                HexTappedCommand="{Binding HexTappedCommand}"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                FillColorPath="{Binding FillColorPath}"
+                SelectedFillColorPath="{Binding SelectedFillColorPath}"
+                StrokeColorPath="{Binding StrokeColorPath}"
+                TextColorPath="{Binding TextColorPath}"
+                MinHexSize="34"
+                MaxHexSize="64"
+                HexSize="30"
+                HexSpacing="0"
+                MinColumns="1"
+                MaxColumns="0"
+                StartWithOffsetRow="False"
+                StrokeThickness="4"
+                PreviewFontSize="13" />
+        </Grid>
+    </Grid>
+
+</ContentPage>

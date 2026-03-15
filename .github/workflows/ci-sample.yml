@@ -1,0 +1,29 @@
+name: ci-sample
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-sample:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui
+
+      - name: Restore sample solution
+        run: dotnet restore samples/Plugin.Maui.HexGrid.Sample.sln
+
+      - name: Build sample solution
+        run: dotnet build samples/Plugin.Maui.HexGrid.Sample.sln --configuration Release --no-restore
